@@ -1,151 +1,92 @@
 import java.util.Date;
 
+/**
+ * Class that stores information about the concrete student
+ * 
+ * DO NOT REMOVE given methods, but you can add new methods/fields/constructor
+ * and change the given methods implementation. For example you can change implementation for equals()
+ * or hashCode() method
+ * 
+ */
 public class Student implements Comparable {
 
+	/**
+	 * student id
+	 */
 	private int id;
+
+	/**
+	 * student name and surname separated by the whitespace for example:
+	 * fullName = "David Luis";
+	 */
 	private String fullName;
+
+	/**
+	 * student date of birth in "yyyy-MM-dd" format
+	 */
 	private Date birthDate;
+
+	/**
+	 * student average mark
+	 */
 	private double avgMark;
 
 	public Student(int id, String fullName, Date birthDate, double avgMark) {
-                ID = id;
+		this.id = id;
 		this.fullName = fullName;
-		DOB = birthDate;
-		Marks = avgMark;
-
+		this.birthDate = birthDate;
+		this.avgMark = avgMark;
 	}
+
 	public int getId() {
-	return id;
+		return id;
 	}
 
 	public void setId(int id) {
-	ID= id;
+		this.id = id;
 	}
 
 	public String getFullName() {
-	return fullName;
+		return fullName;
 	}
 
 	public void setFullName(String fullName) {
-	this.fullName=fullName;
+		this.fullName = fullName;
 	}
 
 	public Date getBirthDate() {
-	return birthDate;
+		return birthDate;
 	}
 
 	public void setBirthDate(Date birthDate) {
-	DOB=birthDate;
+		this.birthDate = birthDate;
 	}
 
 	public double getAvgMark() {
-	return avgMark;
+		return avgMark;
 	}
 
 	public void setAvgMark(double avgMark) {
-	Marks=avgMark;
-	}
-
-	@Override
-	public boolean equals(Object o) {
-	     if (this == o) {
-        return true;
-    }
-    if (o == null) {
-        return false;
-    }
-    if (getClass() != obj.getClass()) {
-        return false;
-    }
-    Advertisement o = (Advertisement) o;
-    return this.getId().equals(o.getId());
-
+		this.avgMark = avgMark;
 	}
 
 	@Override
 	public int hashCode() {
-		
-	return getId().hashCode();
+		return super.hashCode();
 	}
 
 	@Override
-	public int compareTo(Object o) {
-		int cmp = getFullName().compareToIgnoreCase(g.getFullName());
-       if (cmp != 0) return cmp;
-        return (getId() < g.getId() ? -1 : getId() == g.getId() ? 0 : 1);
-
-
+	public boolean equals(Object obj) {
+		return super.equals(obj);
 	}
-}
-
-public static void main(String[] args) {
-		
-		Scanner sc = new Scanner(System.in);
-		int nstudents;
-		String stName;
-		int stID;
-		double stmarks;
-		Date stdob;
-
-		System.out.print("How many students would you like to enter?");
-		nstudents = sc.nextInt();
-		sc.nextLine();
-		ArrayList studentArray = new ArrayList(nstudents);
-		
-		for (int i = 0; i < nstudents; i++) {
-			System.out.print("Enter name: ");
-			stName = sc.nextLine();
-			System.out.print("Enter ID: ");
-			stID = sc.nextInt();
-			System.out.print("Enter marks:");
-			stMarks = sc.nextDouble();
-			sc.nextInt();
-			System.out.print("Enter dob:");
-			stDob = sc.nextLine();
-			studentArray.add(new Student( stID, stName,stDob,stMarks));
-		}
-		
-		
-		//System.out.println("Average is: " + Student.getAverage(studentArray));
-		for (ListIterator stIterator = studentArray.listIterator(); stIterator.hasNext(); ) {
-			Student st = (Student)stIterator.next();
-			System.out.println(st);
-		}
-		
-		ListIterator studentIterator = studentArray.listIterator();
-		
-		while (studentIterator.hasNext()) {
-			Student st = (Student)studentIterator.next();
-			System.out.println(st);
-		}
-		
-		System.out.print("Who would you like to delete?");
-		String nameToRemove = sc.nextLine();
 	
-		Student tempStudent = new Student();
-		tempStudent.setName(nameToRemove);
-		int stIndex = studentArray.indexOf(tempStudent);
-		studentArray.remove(stIndex);
-		
-
-		
-		studentIterator = studentArray.listIterator();
-		
-		while (studentIterator.hasNext()) {
-			Student st = (Student)studentIterator.next();
-			System.out.println(st);
-		}
-		
-		
-		
-			
-
-		
-		// compute and print out average GPA
-		// print out all students' name, ID and GPA
-		
+	
+	/**
+	 * DO NOT change this method it will be used during the task check
+	 */
+	@Override
+	public int compareTo(Object o) {
+		Student other = (Student) o;
+		return (this.fullName.compareTo(other.fullName));
 	}
-
 }
-
-
