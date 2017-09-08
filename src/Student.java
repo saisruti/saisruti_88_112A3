@@ -127,12 +127,7 @@ public static void main(String[] args) {
 		int stIndex = studentArray.indexOf(tempStudent);
 		studentArray.remove(stIndex);
 		
-//		for (int i = 0; i < studentArray.size(); i++) {
-//			Student tempStudent = (Student)studentArray.get(i);
-//			if (tempStudent.getName().equals(nameToRemove)) {
-//				studentArray.remove(i);
-//			}
-//		}
+
 		
 		studentIterator = studentArray.listIterator();
 		
@@ -143,10 +138,8 @@ public static void main(String[] args) {
 		
 		
 		
-//		for (int j = 0; j < studentArray.size(); j++) {
-//			System.out.println(studentArray.get(j));
-//			
-//		}
+			
+
 		
 		// compute and print out average GPA
 		// print out all students' name, ID and GPA
